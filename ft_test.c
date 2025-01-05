@@ -3,6 +3,6 @@
 int	main(void)
 {
 	unsigned int	a = -100;
-	printf("%d", printf("address %%\n"));
+	printf("%d", printf("address %x\n", 1000));
 	return (0);
 }

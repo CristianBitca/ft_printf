@@ -16,6 +16,8 @@ int	format(va_list args, char c)
 		var_return += ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
 		var_return += ft_unsigned(va_arg(args, unsigned int));
+	else if (c == '%')
+		var_return += ft_putchr('%');
 	return (var_return);
 }
 
@@ -48,6 +50,6 @@ int	main(void)
 	unsigned int a = -100;
 	void *p = &a;
 
-	printf("retunr of printf %d", ft_printf("print this string %u\n", a));
+	printf("retunr of printf %d", ft_printf("print this string %%\n", a));
 	return (0);
 }
