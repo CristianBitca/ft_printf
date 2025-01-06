@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cbitca <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/06 15:30:27 by cbitca            #+#    #+#             */
+/*   Updated: 2025/01/06 15:30:28 by cbitca           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -11,11 +22,13 @@ int	format(va_list args, char c)
 	else if (c == 's')
 		var_return += ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
-		var_return += ft_putstr(va_arg(args, char *));
+		var_return += ft_putstr(va_arg(args, void *));
 	else if (c == 'i' || c == 'd')
 		var_return += ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
 		var_return += ft_unsigned(va_arg(args, unsigned int));
+	else if (c == 'x' || c == 'X')
+		var_return += ft_hexadecimal(va_arg(args, unsigned int));
 	else if (c == '%')
 		var_return += ft_putchr('%');
 	return (var_return);
@@ -23,8 +36,8 @@ int	format(va_list args, char c)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list args;
-	int	var_return;
+	va_list	args;
+	int		var_return;
 
 	va_start(args, str);
 	var_return = 0;
@@ -33,12 +46,12 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			var_return += format(args, *++str);
-			*str++;
+			str++;
 		}
 		else
-		{	
+		{
 			var_return += ft_putchr(*str);
-			*str++;
+			str++;
 		}
 	}
 	va_end(args);
@@ -50,6 +63,9 @@ int	main(void)
 	unsigned int a = -100;
 	void *p = &a;
 
-	printf("retunr of printf %d", ft_printf("print this string %%\n", a));
+	printf("My function\n");
+	printf("retunr of printf %d\n", ft_printf("print this string %i\n", a));
+	printf("Actual Function \n");
+	printf("retunr of printf %d", printf("print this string %i\n", a));
 	return (0);
 }
