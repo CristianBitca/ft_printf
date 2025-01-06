@@ -28,7 +28,7 @@ int	format(va_list args, char c)
 	else if (c == 'u')
 		var_return += ft_unsigned(va_arg(args, unsigned int));
 	else if (c == 'x' || c == 'X')
-		var_return += ft_hexadecimal(va_arg(args, unsigned int));
+		var_return += ft_putnbr_hexa(va_arg(args, unsigned int), c);
 	else if (c == '%')
 		var_return += ft_putchr('%');
 	return (var_return);
@@ -60,12 +60,12 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	unsigned int a = -100;
+	unsigned int a = 1003210032132131321;
 	void *p = &a;
 
 	printf("My function\n");
-	printf("retunr of printf %d\n", ft_printf("print this string %i\n", a));
+	printf("retunr of printf %d\n", ft_printf("print this string %X\n", a));
 	printf("Actual Function \n");
-	printf("retunr of printf %d", printf("print this string %i\n", a));
+	printf("retunr of printf %d\n", printf("print this string %X\n", a));
 	return (0);
 }

@@ -25,6 +25,7 @@ int		ft_count_int(int num);
 int		ft_putnbr(int n);
 int		ft_count_unsignedint(unsigned int num);
 int		ft_unsigned(unsigned int n);
+int		ft_putnbr_hexa(unsigned int n, char format);
 
 char	*ft_itoa(int n);
 char	*ft_unsigneditoa(unsigned int n);

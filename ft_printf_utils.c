@@ -50,3 +50,19 @@ int	ft_unsigned(unsigned int n)
 	res = ft_putstr(num);
 	return (res);
 }
+
+int	ft_putnbr_hexa(unsigned int n, char format)
+{
+	char	*base;
+	int	res;
+
+	res = 0;
+	if (format == 'x')
+		base = "0123456789abcdef";
+	else if (format == 'X')
+		base = "0123456789ABCDEF";
+	if (n >= 16)
+		res += ft_putnbr_hexa(n / 16, format);
+	res += ft_putchr(base[n % 16]);
+	return (res);
+}
