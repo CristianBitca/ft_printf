@@ -22,7 +22,7 @@ int	format(va_list args, char c)
 	else if (c == 's')
 		var_return += ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
-		var_return += ft_putstr(va_arg(args, void *));
+		var_return += ft_putpointer(va_arg(args, void *));
 	else if (c == 'i' || c == 'd')
 		var_return += ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
@@ -60,12 +60,12 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	unsigned int a = 1003210032132131321;
+	unsigned int a = 1000;
 	void *p = &a;
 
 	printf("My function\n");
-	printf("retunr of printf %d\n", ft_printf("print this string %X\n", a));
+	printf("retunr of printf %d\n", ft_printf("print this string %x\n", a));
 	printf("Actual Function \n");
-	printf("retunr of printf %d\n", printf("print this string %X\n", a));
+	printf("retunr of printf %d\n", printf("print this string %x\n", a));
 	return (0);
 }

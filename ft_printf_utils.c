@@ -51,10 +51,10 @@ int	ft_unsigned(unsigned int n)
 	return (res);
 }
 
-int	ft_putnbr_hexa(unsigned int n, char format)
+int	ft_putnbr_hexa(unsigned long n, char format)
 {
 	char	*base;
-	int	res;
+	int		res;
 
 	res = 0;
 	if (format == 'x')
