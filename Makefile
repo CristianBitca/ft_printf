@@ -10,31 +10,27 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	ft_calloc.c ft_itoa.c ft_printf_utils.c ft_printf.c \
-		ft_putpointer.c ft_unsigneditoa.c
+SRCS			=	ft_calloc.c ft_putpointer.c ft_unsigneditoa.c ft_itoa.c ft_printf_utils.c ft_printf.c
 
-OBJS	=	$(SRCS:.c=.o)
+OBJS			=	$(SRCS:.c=.o)
 
-CC = gcc
-RM = rm -f
-cFLAGS = -Wall -Wextra -Werror
+CC			= gcc
+RM			= rm -f
+CFLAGS			= -Wall -Wextra -Werror -I
 
-NAME = ft_printf.a
+NAME			= printf.a
 
-all:	$(NAME)
+all:			$(NAME)
 
-$(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+$(NAME):		$(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(OBJS)
+				$(RM) $(OBJS)
 
-fclean:	clean
-		$(RM) $(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-re:	fclean $(NAME)
+re:			fclean $(NAME)
 
-.PHONY:	all clean fclean re
-
-
-
+.PHONY:			all clean fclean re
