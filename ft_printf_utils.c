@@ -24,7 +24,7 @@ int	ft_putstr(char *str)
 
 	i = 0;
 	if (!str)
-		return (0);
+		return (NULL);
 	while (*str)
 	{
 		ft_putchr(*str++);
