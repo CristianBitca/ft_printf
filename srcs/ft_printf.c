@@ -66,6 +66,6 @@ int	ft_printf(const char *str, ...)
 	printf("My function\n");
 	printf("retunr of printf %d\n", ft_printf("NULL %s NULL", NULL));
 	printf("Actual Function \n");
-	printf("retunr of printf %d\n", printf("NULL %s NULL", NULL));
+	printf("retunr of printf %d\n", printf("NULL %x NULL", 100));
 	return (0);
 }*/

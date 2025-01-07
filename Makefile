@@ -10,20 +10,26 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	ft_calloc.c ft_putpointer.c ft_unsigneditoa.c ft_itoa.c ft_printf_utils.c ft_printf.c
+SRCS_FILES		=	ft_calloc ft_putpointer ft_unsigneditoa ft_itoa ft_printf_utils ft_printf
 
-OBJS			=	$(SRCS:.c=.o)
+SRCS_DIR		=	srcs/
+OBJ_DIR			=	obj/
+HEADER_DIR		=	include/
 
 CC			= gcc
 RM			= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+CFLAGS			= -Wall -Wextra -Werror -I $(HEADER_DIR)
+AR			= ar rcs
 
 NAME			= libftprintf.a
+
+SRCS			=	$(addsuffix .c, $(SRCS_FILES))
+OBJS			=	$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+				$(AR) $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)
