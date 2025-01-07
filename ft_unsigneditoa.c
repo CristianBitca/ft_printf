@@ -17,8 +17,6 @@ int	ft_count_unsignedint(unsigned int num)
 	int	i;
 
 	i = 1;
-	if (num < 0)
-		i++;
 	while (num > 9)
 	{
 		num = num / 10;
