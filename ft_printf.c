@@ -58,7 +58,7 @@ int	ft_printf(const char *str, ...)
 	return (var_return);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	unsigned int a = 1000;
 	void *p = &a;
@@ -68,4 +68,4 @@ int	main(void)
 	printf("Actual Function \n");
 	printf("retunr of printf %d\n", printf("NULL %s NULL", NULL));
 	return (0);
-}
+}*/
