@@ -13,29 +13,34 @@
 SRCS_FILES		=	ft_calloc ft_putpointer ft_unsigneditoa ft_itoa ft_printf_utils ft_printf
 
 SRCS_DIR		=	srcs/
-OBJ_DIR			=	obj/
+OBJ_DIR			=	obj
 HEADER_DIR		=	include/
 
 CC			= gcc
-RM			= rm -f
+RM			= rm -rf
 CFLAGS			= -Wall -Wextra -Werror -I $(HEADER_DIR)
 AR			= ar rcs
 
 NAME			= libftprintf.a
+BINARY			= out
 
-SRCS			=	$(addsuffix .c, $(SRCS_FILES))
-OBJS			=	$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
+SRCS			=	$(wildcard $(SRCS_DIR)/*.c)
+OBJS			=	$(patsubst $(SRCS_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
 				$(AR) $(NAME) $(OBJS)
 
+$(OBJ_DIR)/%.o: $(SRCS_DIR)/%.c
+				@mkdir -p $(OBJ_DIR)
+				$(CC) $(CFLAGS) -c -o $@ $< 
+
 clean:
-				$(RM) $(OBJS)
+				$(RM) $(OBJ_DIR)
 
 fclean:			clean
-				$(RM) $(NAME)
+				$(RM) $(BINARY) $(NAME)
 
 re:			fclean $(NAME)
 
