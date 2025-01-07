@@ -23,6 +23,8 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (*str)
 	{
 		ft_putchr(*str++);
