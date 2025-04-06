@@ -10,11 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS_FILES		=	ft_calloc ft_putpointer ft_unsigneditoa ft_itoa ft_printf_utils ft_printf
-
-SRCS_DIR		=	srcs/
+SRCS_DIR		=	srcs
 OBJ_DIR			=	obj
-HEADER_DIR		=	include/
+HEADER_DIR		=	include
 
 CC			= gcc
 RM			= rm -rf
